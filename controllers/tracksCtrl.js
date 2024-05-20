@@ -29,7 +29,7 @@ const show = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        const foundTrack = await Track.findByIdAndUpdate(req.params.trackId)
+        const foundTrack = await Track.findByIdAndUpdate(req.params.trackId, req.body)
         res.status(200).json(foundTrack)
     } catch (error) {
         res.status(500).json({ error: error.message })
